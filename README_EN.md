@@ -1,0 +1,80 @@
+# LaoWang Sub Converter
+
+Production-ready private subscription converter with a web console and backend APIs for conversion, merge, health check, short links, and client exports.
+
+## Quick Deploy
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tony-wang1990/laowang-sub-converter/main/scripts/deploy.sh | sudo bash
+```
+
+Defaults:
+
+```text
+Image: ghcr.io/tony-wang1990/laowang-sub-converter:latest
+Install dir: /opt/laowang-sub-converter
+Data dir: /opt/laowang-sub-converter/data
+Port: 3000
+URL: http://SERVER_IP:3000
+```
+
+Update:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tony-wang1990/laowang-sub-converter/main/scripts/deploy.sh | sudo bash -s update
+```
+
+Logs:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tony-wang1990/laowang-sub-converter/main/scripts/deploy.sh | sudo bash -s logs
+```
+
+## Features
+
+- Convert subscriptions to Clash, Mihomo, Surge, Loon, Quantumult X, Shadowrocket, V2RayN, sing-box and more.
+- Merge multiple subscriptions with dedupe, sorting, filtering, renaming, and rule presets.
+- Check node TCP reachability from the server and export online nodes.
+- Create persistent short links with click counts.
+- Generate QR codes for subscription URLs and supported share links.
+
+## Development
+
+Requires Node.js `>=20.19.0`.
+
+```bash
+npm install
+npm run dev
+```
+
+Production build:
+
+```bash
+npm run build
+npm run server
+```
+
+## Verification
+
+```bash
+npm test
+npm run build
+npm run audit
+```
+
+## API
+
+```http
+GET /api/convert
+POST /api/merge
+POST /api/merge/preview
+POST /api/health/check
+POST /api/shortlink
+GET /api/shortlink/list
+GET /api/targets
+GET /healthz
+```
+
+## License
+
+MIT

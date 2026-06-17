@@ -1,0 +1,14 @@
+services:
+  laowang-sub-converter:
+    build: .
+    image: laowang-sub-converter:latest
+    container_name: laowang-sub-converter
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATA_DIR: /app/data
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped

@@ -1,0 +1,54 @@
+{
+  "name": "laowang-sub-converter",
+  "version": "1.0.0",
+  "description": "LaoWang subscription converter for multi-protocol proxy client formats",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/index.js",
+    "start": "npm run build && npm run server",
+    "test": "npm run test:protocol && npm run test:api",
+    "test:protocol": "node tests/protocol-matrix.test.mjs",
+    "test:api": "node tests/api.test.mjs",
+    "audit": "npm audit --audit-level=moderate",
+    "docker:build": "docker build -t laowang-sub-converter:latest .",
+    "docker:run": "docker run --rm -p 3000:3000 laowang-sub-converter:latest",
+    "docker:compose": "docker-compose up -d"
+  },
+  "keywords": [
+    "subscription",
+    "converter",
+    "clash",
+    "surge",
+    "shadowrocket",
+    "v2ray",
+    "proxy"
+  ],
+  "author": "LaoWang",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tony-wang1990/laowang-sub-converter"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "js-yaml": "^4.1.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.7",
+    "lucide-vue-next": "^0.468.0",
+    "qrcode": "^1.5.3",
+    "vite": "^8.0.16",
+    "vue": "^3.4.0",
+    "vue-router": "^4.2.5"
+  },
+  "overrides": {
+    "qs": "^6.15.2"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  }
+}
